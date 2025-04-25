@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Escape Game 5.5</title>
+</head>
+<body>
+    <h1>Suivez les voleurs !</h1>
+    <input type="text" id="nomJoueur" placeholder="Ecrivez votre nom">
+    <button onclick="commencerJeu()">Commencer</button>
+    <div>
+        <canvas id="jeuCanvas" width="400" height="600" style="display: none;"></canvas>
+        <button id="boutonRejouer" style="display: none;" onclick="reinitialiserJeu()">Rejouer</button>
+    </div>
+    <div id="ecranFin" style="display: none;">
+        <div id="messageFin"></div>
+        <button onclick="reinitialiserJeu()">Rejouer</button>
+    </div>
+    <script src="script.js" defer></script>
+</body>
+</html>
