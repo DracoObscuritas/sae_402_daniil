@@ -56,7 +56,7 @@ function commencerJeu() {
 
     // Masquer les éléments du menu
     document.getElementById("nomJoueur").style.display = "none";
-    document.querySelector("bouton").style.display = "none";
+    document.querySelector("button").style.display = "none";
     document.getElementById("boutonRejouer").style.display = "none";
     canvas.style.display = "block";
     
@@ -77,7 +77,7 @@ function reinitialiserJeu() {
     joueur.height = 40;
 
     // Réinitialisation des obstacles et du temps
-    bancs. length = 0;
+    bancs.length = 0;
     bancTimer = 0;
     poursuiteTimer = poursuiteTime * 60;
 
@@ -188,7 +188,7 @@ function draw() {
     ctx.fillStyle = voleur.color;
     ctx.fillRect(voleur.x, voleur.y, voleur.width, voleur.height);
 
-    // Dessienr les obstacles (bancs)
+    // Dessiner les obstacles (bancs)
     bancs.forEach(banc => {
         ctx.fillStyle = banc.color;
         ctx.fillRect(banc.x, banc.y, banc.width, banc.height);
