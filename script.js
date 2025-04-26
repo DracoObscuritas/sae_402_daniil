@@ -38,9 +38,16 @@ const bancInterval = 100;   // chaque 100 frames    // Intervalle en frames entr
 let poursuiteTime = 10;     // secondes
 let poursuiteTimer = poursuiteTime * 60; // Converti en frames (60 fps)
 
-// Écoute de l'événement clavier pour faire sauter le joueur
+// Contrôle du personnage en jeu (ordinateur)
 window.addEventListener('keydown', (e) => {
     if (e.code === 'Space' && !joueur.isJumping) {
+        joueur.vy = joueur.jumpStrength;
+        joueur.isJumping = true;
+    }
+});
+// Contrôle du personnage en jeu (mobile)
+window.addEventListener('touchstart', () => {
+    if (!joueur.isJumping) {
         joueur.vy = joueur.jumpStrength;
         joueur.isJumping = true;
     }
