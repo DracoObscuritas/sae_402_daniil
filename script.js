@@ -1,6 +1,10 @@
 // Empêche le scroll lors du toucher ou de l'appui sur espace
-window.addEventListener('touchstart', (e) => {
+canvas.addEventListener('touchstart', (e) => {
     e.preventDefault();
+    if (!joueur.isJumping) {
+        joueur.vy = joueur.jumpStrength;
+        joueur.isJumping = true;
+    }
 }, { passive: false});
 window.addEventListener('touchmove', (e) => {
     e.preventDefault();
