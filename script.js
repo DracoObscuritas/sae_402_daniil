@@ -1,20 +1,3 @@
-// Empêche le scroll lors du toucher ou de l'appui sur espace
-canvas.addEventListener('touchstart', (e) => {
-    e.preventDefault();
-    if (!joueur.isJumping) {
-        joueur.vy = joueur.jumpStrength;
-        joueur.isJumping = true;
-    }
-}, { passive: false});
-window.addEventListener('touchmove', (e) => {
-    e.preventDefault();
-}, { passive: false });
-window.addEventListener('keydown', (e) => {
-    if (["Space", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.code)) {
-        e.preventDefault();
-    }
-});
-
 // Récupération du canvas et du contexte de dessin 2D
 const canvas = document.getElementById('jeuCanvas');
 const ctx = canvas.getContext("2d");
@@ -55,13 +38,34 @@ const bancInterval = 100;   // chaque 100 frames    // Intervalle en frames entr
 let poursuiteTime = 10;     // secondes
 let poursuiteTimer = poursuiteTime * 60; // Converti en frames (60 fps)
 
-// Contrôle du personnage en jeu (ordinateur)
+// Contrôles clavier et tactile
+// Empêcher le scroll sur mobile et lors de l'utilisation des flèches ou espace
+canvas.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    sauter();
+}, { passive: false });
+
+window.addEventListener('touchmove', (e) => {
+    e.preventDefault();
+}, { passive: false });
+
 window.addEventListener('keydown', (e) => {
-    if (e.code === 'Space' && !joueur.isJumping) {
+    if (["Space", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.code)) {
+        e.preventDefault();
+    }
+    if (e.code === 'Space') {
+        sauter();
+    }
+});
+
+// Fonction pour faire sauter le joueur
+function sauter() {
+    if (!joueur.isJumping) {
         joueur.vy = joueur.jumpStrength;
         joueur.isJumping = true;
     }
-});
+}
+
 // Contrôle du personnage en jeu (mobile)
 window.addEventListener('touchstart', () => {
     if (!joueur.isJumping) {
