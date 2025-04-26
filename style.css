@@ -1,3 +1,4 @@
+/*Définition de la page index*/
 body {
     margin: 0; 
     overflow: hidden; 
@@ -8,6 +9,8 @@ canvas {
     margin: 0 auto; 
     background: #cce; 
 }
+
+/* L'écran de fin de la partie */
 #ecranFin {
     position: fixed;
     top: 0;
