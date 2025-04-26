@@ -62,8 +62,6 @@ function commencerJeu() {
     
     // Initialiser le jeu et démarrer la boucle
     reinitialiserJeu();
-    jeuEnCours = true;
-    gameLoop();
 }
 
 // Fonction pour réinitialiser l'état du jeu
